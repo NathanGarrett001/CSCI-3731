@@ -1,0 +1,50 @@
+Nathan Garrett
+HW 1
+01/12/22
+
+Short Answers:
+Chapter 1:
+1.  How did structured programming improve on what came before it?
+
+        Basically with each iteration, a newer programming language took more and more tedium and complexity out of the programmer’s hands and automated higher level processes.  In the case of the C language, it allowed “jump commands” for if statements and loops to be utilized as a nested block of code.
+
+3.  What is the difference between C and C++?
+
+	C gives the programmer access to low level functions and memory.  It allows the user to write high level functions that get directly translated to assembly.  C++ on the other hand is an Object Oriented, higher level language.  This allows ease of access that allows the user to utilize classes for faster programming and better organization. 
+
+Right, I just noticed that it ended at #6.  So I’ll just… keep going.
+
+Chapter 2:
+
+1.  Why would it be a bad idea to enter the following bash commands?
+        cd 
+        rm -r *
+
+	The “cd” without specifying a directory will take you to your home directory.  If it’s followed by the next line we see here, then bye-bye entire home directory because rm -r * will remove everything in your home directory.  That’s bad news.
+
+3.  What is the difference between compiling and linking?
+	When you compile the code, you are turning your high level language into a lower level machine language object file that the computer can understand.  Linking is when you make an executable file from that code by gathering each object file and combining them.
+
+9.  Would the following code compile in C++? Why or why not? 
+        double x = 32.0; 
+        int n = x;
+
+	Yes, because C++ will implicitly cast the data type, regardless of data loss.  
+
+10.  What is wrong with the following code, and how would you fix it? 
+        int sum; 
+        for(int i=0; i < 1000; ++i){
+	    sum += i;
+        }
+
+        printf(“Sum of 0 to 999 is %d\n”, sum);
+
+        The variable “sum” is not initialized and therefore might not be zero from it’s assigned place in memory.  I would instead write the first line as:  “int sum = 0;”
+
+11.  What is wrong with the following code, and how would you fix it?
+	int n = 1;
+	if(n = 0) {
+	    printf(“n is zero\n”);
+	}
+	
+	In the if statement, the variable n is being assigned to 0 because there is only one equal sign.  In order to fix this to make a comparative statement like intended, change the if statement to “if(n == 0){“.
