@@ -1,1 +1,22 @@
+Name:  Nathan Garrett
+Date:  01/26/2022
+Homework 2
 
+
+
+2.  When you declare a function, you are telling the compiler that the function exists.  It's instantiates it with a data type/arguments and return type.  A function declaration by itself will end in a semicolon at the end
+    of the argument's "()".
+    When you define the function, you are providing the compiler with the code associated with the declared function.
+
+3.  C/C++ needs to have the function declared before it is defined because the compiler only makes one pass through the code.  Also, C/C++ is not object oriented, so functions are the go-to when making code in this language.  
+    For Java, the code is encapsulated in classes, so there's no need for functions.  Instead it uses methods, which are basically functions inside a class.  It also makes 2 passes through the code, so you can declare a method
+      at the bottom of the code and it will still compile, because the definitions will be seen at the second pass.
+
+4.  The C Preprocessor is what runs before the compiler that makes text manipulations based on directive following the # sign.  One thing you can do is tell the preprocessor to include different files's code (declarations etc)
+      in the file you put the #include in.  Another manipulation you can do is to replace certain macros with a piece of data (int, String, a piece of arithmetic etc) using the #define directive.  You can also ensure you 
+      are putting the right code for whatever Operating System you are using by using a preprocessor "if" statement.  Built in headers use a <> encapsulation, and ones that you write 
+
+5.  Headers can save time by providing a declaration for a function that can be included with a preprocessor directive in a cc file when linked.  This allows you to only declare it once and simply include it instead of having
+      to declare the function in every file. When it comes time for compiling though, you don't compile the header files explicitly.
+
+8.  In this case, "MAX_VALUE" would be a macro instead that gets defined as the value 32767 when the preprocessor finds it in the code.  This is because the preprocessor finds the macro and replaces it before the compiler runs. 
