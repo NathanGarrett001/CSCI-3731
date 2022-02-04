@@ -6,7 +6,8 @@ HW 03
 1.  A pointer is a memory address.  When you make a variable, it has a pointer which references the address in memory for where the variable is stored.  In java, the closest thing to a pointer would be an object.
 
 9.  (a) this is the variable "a" dereferenced as an int data type.
-    (b) This is a constant integer called b.  The variable cannot be         changed.
+    (b) This is a constant integer called b.  The variable cannot be         
+        changed.
     (c) For this, you can change the pointer but not the int variable 
         it points to.
     (d) In this one, you cannot change the pointer, but you can change 
@@ -14,12 +15,14 @@ HW 03
     (e) You can't change anything here.  Both the pointer and the data
         are constant.
 
-10.  From what I understand, you shouldn't declare a variable that you will be using for referencing with a pointer inside a function like this because
+10.  From what I understand, you shouldn't declare a variable that you will 
+be using for referencing with a pointer inside a function like this because
 a soon as the function is done, the variable no longer exists so that 
 area in memory can be repurposed at a later time.  To fix this, you can 
 declare the variable "max" outside the function and reference the variable
-with a pointer inside the function, that way the address is preserved, while still being able to change the value.
-( I did it again lol doing extra work because I was on auto pilot) 
+with a pointer inside the function, that way the address is preserved, while 
+still being able to change the value.
+(I did it again lol doing extra work because I was on auto pilot) 
 
 12.  This one I believe is similar to #10 in the sense that you initialize a variable in the function, but it's space in memory is not preserved when the function closes.  This makes it possible for the computer to use that memory address afterwards for another variable and creates havoc on your program.  A fix for this would be to initialize the variable outside the function and pass the pointer as an argument it when you run the function.
 
