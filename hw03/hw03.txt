@@ -3,7 +3,9 @@ Date:  02/04/2022
 
 HW 03
 
-1.  A pointer is a memory address.  When you make a variable, it has a pointer which references the address in memory for where the variable is stored.  In java, the closest thing to a pointer would be an object.
+1.  A pointer is a memory address.  When you make a variable, it has a pointer which references 
+the address in memory for where the variable is stored.  In java, the closest thing to a 
+pointer would be an object.
 
 9.  (a) this is the variable "a" dereferenced as an int data type.
     (b) This is a constant integer called b.  The variable cannot be         
@@ -24,8 +26,16 @@ with a pointer inside the function, that way the address is preserved, while
 still being able to change the value.
 (I did it again lol doing extra work because I was on auto pilot) 
 
-12.  This one I believe is similar to #10 in the sense that you initialize a variable in the function, but it's space in memory is not preserved when the function closes.  This makes it possible for the computer to use that memory address afterwards for another variable and creates havoc on your program.  A fix for this would be to initialize the variable outside the function and pass the pointer as an argument it when you run the function.
+12.  This one I believe is similar to #10 in the sense that you initialize a variable 
+in the function, but it's space in memory is not preserved when the function closes.  
+This makes it possible for the computer to use that memory address afterwards for another 
+variable and creates havoc on your program.  A fix for this would be to initialize the 
+variable outside the function and pass the pointer as an argument it when you run the function.
 
-14.  The line causing the seg fault is the one that dereferences the variable at "*out = sum;".  What I believe is happening here is that "sum" doesn't give you a valid variable value that is compatible with an int. 
+14.  The line causing the seg fault is the one that dereferences the variable at "*out = sum;".  
+What I believe is happening here is that "sum" doesn't give you a valid variable value that 
+is compatible with an int. 
 
-15.  This bit of code will not compile because scanf needs its variable argument to be a pointer so it can fill the pointed to variables with the new value.  to fix this, I would change that line to "scanf("%d", &n);", adding the & before the n.
+15.  This bit of code will not compile because scanf needs its variable argument to be a 
+pointer so it can fill the pointed to variables with the new value.  to fix this, I would 
+change that line to "scanf("%d", &n);", adding the & before the n.
