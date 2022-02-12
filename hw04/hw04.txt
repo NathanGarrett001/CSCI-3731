@@ -1,0 +1,50 @@
+Name:  Nathan Garrett
+Date:  02/10/2022
+
+Chapter 5 Questions
+
+1:  In Java, the arrays are objects that hold both the items and the allocated 
+size of the array.  Java also checks to see if the index is valid so you don't 
+get a seg fault.  In C++, when you make an array, it simply allocates a chunk of
+memory and does not keep track of the size of the array.  You access the array by 
+using pointers.  That is something the user has to keep track of.  It also 
+doesn't check to make sure the index is valid, which will also be the user's 
+responsibility.
+
+3:  Yes.  Although I believe though that you should declare where n is pointing to, 
+like a primitive or array.  But you can pass it.  The function just ensures that 
+you can modify where the pointer is pointing at, just no the data inside that address.
+
+5:  In order to pass only a part of the array to the function, in this case the 3rd 
+through the 6th, I would need to call the function like this:
+   f(a+2, 4);
+
+6:  
+    char copy[8];
+    const char* string = "hello";
+    int i = 0;
+    for( ; string[i] != "\0"; ++i){
+        copy[i] = string[i];
+    }
+    copy[i] = "\0";
+    printf("%s\n", copy);
+
+    To make the algorithm close out the string at the end of the loop, I pulled out
+    the i counter and utilized it when the loop closed to end off the copy string 
+    with a \0.  I suppose you could also put a size int into the algorithm too in 
+    order to make the copy more safe by giving it a check for the allocated length
+    of the string.  
+
+8:  The array is declared inside the function on the stack, so it will no longer be
+allocated when the function closes.   In order to fix this, you would put: 
+
+    double* array = new double[length];
+
+    This allocates your array on the heap, so now the memory is allocated to that
+    array after it leaves the function.  Of course, you should also use the lines:
+
+    delete [] array;
+    array = nullptr;
+
+    This gets rid of the allocation so that you don't risk a memory leak,
+    especially if the array is in a loop.  
