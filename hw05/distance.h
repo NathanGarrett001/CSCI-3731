@@ -1,4 +1,6 @@
-#pragma once
+//Name:  Nathan Garrett
+//Date:  02/18/2022
+
 #define _USE_MATH_DEFINES
 #include <cmath>
 
