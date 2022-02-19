@@ -11,7 +11,6 @@ int main(int argc, char** argv) {
 
 	double x;
 	double y;
-	bool oob = false;
 
 	printf("Please enter angle: ");
 	scanf_s("%lf", &angle);
