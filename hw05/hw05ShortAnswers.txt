@@ -1,4 +1,13 @@
 Name:  Nathan Garrett
 Date:  02/18/2022
 
-1:  
+1:  In C++, you have to designate the size of the array you are using in the function call, and in doing so, you are limited
+in the arrays that you pass to the function to the size designated in the function itself.  With that being said, in order to pass
+an array of variable size to a function, you'll have to flatten it out and do extra multiplicaion math in order to access different
+rows which may slow down the program, especially if it's a big array.
+
+2:  Speaking of flattened out 2d arrays, this is one of the methods you can use to get around the size restriction.  Basically, you 
+have a 1d array with different intervals that act as the descending rows placed end to end.  The way you access each row is through
+multiplication of the width and j, plus another i columns down.  Another way to get around the restriction is by using the numerical 
+recipes technique, where you make a flat array, then have another array of pointers that point to the beginning of each row in the 
+flat array.  With this techique, you can cut out the multiplication part 
