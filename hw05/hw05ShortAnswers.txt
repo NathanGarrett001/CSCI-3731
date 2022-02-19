@@ -10,4 +10,6 @@ rows which may slow down the program, especially if it's a big array.
 have a 1d array with different intervals that act as the descending rows placed end to end.  The way you access each row is through
 multiplication of the width and j, plus another i columns down.  Another way to get around the restriction is by using the numerical 
 recipes technique, where you make a flat array, then have another array of pointers that point to the beginning of each row in the 
-flat array.  With this techique, you can cut out the multiplication part 
+flat array.  With this techique, you can cut out the multiplication part.
+
+3:  I'm going to take a bit of a shot in the dark here, but,  "const int** const array" ?  
