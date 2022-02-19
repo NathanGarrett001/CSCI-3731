@@ -37,4 +37,5 @@ int main(int argc, char** argv) {
 	graph(array, w, h);
 	delete[] * array;
 	delete[] array;
+	array = nullptr;
 }
