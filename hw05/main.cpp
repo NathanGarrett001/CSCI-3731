@@ -1,3 +1,6 @@
+//Name:  Nathan Garrett
+//Date:  02/18/2022
+
 #include <cstdio>
 #include "distance.h"
 using namespace std;
