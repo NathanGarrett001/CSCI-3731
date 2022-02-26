@@ -1,0 +1,38 @@
+Name:  Nathan Garrett
+Date:  02/25/2022
+
+1.  Libararies are good for when you have certain chunks of code that you want to implement, but they are already written by somebody, so you don't want to re-invent the wheel.
+  So, as a solution, and with appropriate permissions when needed, you can import external code (a collection of object files) as a library, to your code, to execute 
+  functions that are already well established.
+  
+2.  The two kinds of libraries are a static library, and a dynamic linked library.  With a static Library, when you link it, the onbect files become part of the executible file,
+  along with your individual created files.  When you link a static library to your executable, you don't have to have the library around when you run the program, yay.  The 
+  disadvantage to this is that your total file size will be biggr because you are carrying that info with you.  For a Dynamic Library, multiple executables can use the same
+  library simultaneously.  Another difference here is that you can create plugins that because they are loaded at runtime, you can add code to the app you are running without
+  the need for recompiling.
+  
+3.  One reason that you wouldn't want to compile it yourself is that the library might have a lot of other external dependancies that the libaray relies on in order to run.  
+  Also, compiling yourself is a complicated task that can take up valuable time, and the library you are trying to run might have updated versions or different versions of 
+  projects it relies on that are needed to run in order to compile.  The package manager takes care of all that.  I suppose though, that if you created a library on your own, it 
+  might be beneficial to compile it yourself, because you know what version you are using.
+  
+4.  I think...
+GXX = g++
+CFLAGS = -O2
+
+all: main
+
+libpng.o: libpbg.dylib png.h
+	$(GXX) -c -Wall -Werror -I /usr/local/include -L /usr/local/lib/libpng.dylib $(CFLAGS)
+
+main.o: main.cc png.h
+	$(GXX) -c -Wall -Werror main.cc $(CLFAGS)
+
+main: main.o libpng.o
+	$(GXX) -o main main.o libpng.o
+
+clean:
+	rm -f *.o
+
+5.  A struct is a class, or "data structure" with no methods.  From what I see an can relate to in java, it's for assigning and holding properties to ab object.  It's a simplistic
+  version of Object Oriented Programming with structs being the class, and functions being the methods that you pass the struct to.  
