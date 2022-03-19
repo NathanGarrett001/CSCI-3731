@@ -1,0 +1,42 @@
+Name: Nathan Garrett
+Date: 03/18/2022
+
+1.  In this header code, it seems to be missing the semicolon at the end of the last bracket to close the statement.  It's 
+also missing the call to the class with no arguments as the first line after the public: line.  To fix this, just add them in.  
+
+2.  First, the declaration should have the beginning statement -
+
+Projectile::Projectile 
+
+before the first line.  
+
+Next the declaration should be phrased like so - 
+
+Projectile::Projectile(int position, int velocity) {
+
+Finally, in the "this" parts, it's better to use -> instead of the dot.
+So the code should look like - 
+
+Projectile::Projectile(){
+}
+Projectile::Projectile(int position, int velocity) {
+this->position = position;
+this->velocity = velocity;
+} // end of constructor
+
+
+3.  (a) The method takes the argument of a pointer to an int, then returns a pointer to an int.
+    (b) The method takes a pointer to an int, then returns a pointer to a constant int.
+    (c) The constant method takes a pointer to an int, then returns a constant pointer to an int.
+    (d) The constant method takes a pointer to a constant int, then returns a pointer to a constant int.
+    (e) The constant method takes a pointer to a constant int, then returns a pointer to a constant int, 
+        and does not modify the object, as it is also constant.
+
+5.  They are both forms of pointers, but there are some differences.
+- A reference is automatically dereferenced, while a pointer needs to be dereferenced by the user.  
+- While a pointer can change what it points to further down in the code, a reference cannot change what it points to once initialized. 
+- While a pointer can point to null if you want, a reference can only point to valid variables.
+- Pointers work in C and C++, while references were only added in C++, so they don't exist in C.  
+
+10.  Since the compiler only makes one pass through the code, it doesn't necessarily know whether the method modifies the object's 
+data.  So I believe, unless it is a pointer, the constant is not necessary here. 
