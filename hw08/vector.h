@@ -23,6 +23,8 @@ public:
 
 	void setPoints(double x, double y, double z);
 	void setAccel(double z);
+	void setxVel(double x);
+	void setyPos(double y);
 
 	vector operator+(const vector vect);
 	vector operator-(const vector vect);
