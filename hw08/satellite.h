@@ -22,7 +22,7 @@ public:
 	satellite(vector & yPos, vector & zAccel, planet& planetSize);
 	virtual ~satellite();
 
-	void update(vector & yPos, vector & zAccel, int timeInterval);
+	void update(vector & yPos, vector & zAccel,vector& xVel, int timeInterval);
 
 
 
