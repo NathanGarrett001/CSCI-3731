@@ -3,6 +3,7 @@
 #include <iostream>
 
 class planet;
+class satellite;
 
 class vector {
 
