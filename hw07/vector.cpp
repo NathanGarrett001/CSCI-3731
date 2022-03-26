@@ -1,19 +1,25 @@
 #include "vector.h"
+#include <iostream>
 
 vector::vector() {
 
 }
 
-vector::vector(double* x, double* y, double* z) {
+vector::vector(double x, double y, double z) {
 
-	this->x = *x;
-	this->y = *y;
-	this->z = *z;
+	this->x = x;
+	this->y = y;
+	this->z = z;
 
 }
 
 vector::~vector() {
 
+}
+
+std::ostream& operator<<(std::ostream& out, const vector& vect) {
+	out << "("<<p.x<<", "<<p.y<<")";
+        return out;
 }
 
 double vector::getX() const {
@@ -41,27 +47,16 @@ void vector::setPoints(double x, double y, double z) {
 
 }
 
-void vector::addVect(vector v1, vector v2, double* x_ptr, double* y_ptr, double* z_ptr) {
+vector vector::operator+(const vector vect) {
 
-	*x_ptr = v1.getX() + v2.getX();
-	*y_ptr = v1.getY() + v2.getY();
-	*z_ptr = v1.getZ() + v2.getZ();
-
-	this->x = *x_ptr;
-	this->y = *y_ptr;
-	this->z = *z_ptr;
+	return vector(x + vect.x, y + vect.y, z + vect.z);
 
 }
 
-void vector::subVect(vector v1, vector v2, double* x_ptr, double* y_ptr, double* z_ptr) {
+vector vector::operator-(const vector vect) {
 
-	*x_ptr = v1.getX() - v2.getX();
-	*y_ptr = v1.getY() - v2.getY();
-	*z_ptr = v1.getZ() - v2.getZ();
+	return vector(x - vect.x, y - vect.y, z - vect.z);
 
-	this->x = *x_ptr;
-	this->y = *y_ptr;
-	this->z = *z_ptr;
 }
 
 vector& vector::operator+=(const vector vect) {
@@ -74,27 +69,22 @@ vector& vector::operator+=(const vector vect) {
 
 }
 
-void vector::times2Vect(vector vect, double* x_ptr, double* y_ptr, double* z_ptr) {
+vector vector::operator*(const vector vect) {
 
-	double twice = 2.0;
-	*x_ptr = vect.getX() * twice;
-	*y_ptr = vect.getY() * twice;
-	*z_ptr = vect.getZ() * twice;
+	return vector(x * vect.x, y * vect.y, z * vect.z);
 
-	this->x = *x_ptr;
-	this->y = *y_ptr;
-	this->z = *z_ptr;
 }
 
-double vector::multVects(vector v1, vector v2, double* x_ptr, double* y_ptr, double* z_ptr) {
+double vector::multVects(vector v1, vector v2) {
 
 	double dotProd = 0.0;
+	double x = 0.0, y = 0.0, z = 0.0;
 
-	*x_ptr = v1.getX() * v2.getX();
-	*y_ptr = v1.getY() * v2.getY();
-	*z_ptr = v1.getZ() * v2.getZ();
+	x = v1.getX() * v2.getX();
+	y = v1.getY() * v2.getY();
+	z = v1.getZ() * v2.getZ();
 
-	dotProd = *x_ptr + *y_ptr + *z_ptr;
+	dotProd = x + y + z;
 
 	return dotProd;
 
