@@ -44,6 +44,12 @@ void vector::setPoints(double x, double y, double z) {
 void vector::setAccel(double z) {
 	this->z = z;
 }
+void vector::setxVel(double x) {
+	this->x = x;
+}
+void vector::setyPos(double y) {
+	this->y = y;
+}
 
 std::ostream& operator<<(std::ostream& out, vector& vect) {
 	out << "(" << vect.getX() << ", " << vect.getY() << ")";
