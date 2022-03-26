@@ -18,7 +18,7 @@ vector::~vector() {
 }
 
 std::ostream& operator<<(std::ostream& out, const vector& vect) {
-	out << "("<<p.x<<", "<<p.y<<")";
+	out << "("<<vect.getX()<<", "<<vect.getY()<<")";
         return out;
 }
 
