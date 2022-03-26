@@ -10,7 +10,7 @@ private:
 
 public:
 	vector();
-	vector(double* x, double* y, double* z);
+	vector(double x, double y, double z);
 	virtual ~vector();
 
 	double getX() const;
@@ -19,11 +19,13 @@ public:
 
 	void setPoints(double x, double y, double z);
 
-	void addVect(vector v1, vector v2, double* x_ptr, double* y_ptr, double* z_ptr);
-	void subVect(vector v1, vector v2, double* x_ptr, double* y_ptr, double* z_ptr);
+	vector operator+(const vector vect);
+	vector operator-(const vector vect);
 	vector & operator+=(const vector vect);
-	void times2Vect(vector vect, double* x_ptr, double* y_ptr, double* z_ptr);
-	double multVects(vector v1, vector v2, double* x_ptr, double* y_ptr, double* z_ptr);
+	vector operator*(const vector v1);
+	double multVects(vector v1, vector v2);
+
+	friend std::ostream& operator<<(std::ostream& out, const vector& vect);
 
 };
 
