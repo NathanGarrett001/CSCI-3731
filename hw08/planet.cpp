@@ -27,11 +27,9 @@ bool planet::accel(vector& yPos, vector& zAccel) {
 
 	double alt = yPos.getY();
 	double acceleration = 0.0;
-	bool crash = true;
+	bool crash = false;
 
 	double altSquared = alt * alt;
-
-	
 
 	if (altSquared < (r * r)) {
 		return true;
