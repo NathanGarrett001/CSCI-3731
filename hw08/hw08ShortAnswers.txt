@@ -1,0 +1,28 @@
+Name:  Nathan Garrett
+Date:  3/25/2020
+
+2.  Ownership is when a pointer or piece of data within an object is under the control of the original object.  The master object is responsible for destructing the
+pointer/data when it is finished with it.  It's basically a convention for dealing with heap memory.
+
+6.  The rule of 5 is an expansion on the original rule of three for heap memory management.  It's a convention that is put into place in order to prevent memory leaks, 
+and help manage the data that gets passed into objects.  It basically says that if you implement any one of these functions, then the other four should be there as well.
+  1 - When the object goes out of scope, a destructor should be in place to free any of the resources it was managing.
+  2 - If your class owns data, then you should implement the operator= function.  
+  3 - Also if your class owns data, then you should implement a copy constructor.
+    These allow the program to manage your resources safely.  The next two allows optimized copying from objects
+  4 - Using rvalues, you need to implement the move constructor to avoid expensive creating, copying, and removing ojbjects when you make copies.  This avoids that by 
+    creating an rvalue reference used in a constructor that create a reference to the rvalue passed to it.
+  5 - With that, you need a move= operator in order to move ownership of the copies you make.
+  
+7.  Copy Elision means to "omit", and eliminates unneccessary copying of objects.  When you create and return a variable/object, two copies are created on the stack as 
+it goes out of scope. Instead of ending up with two copies in memory, the compiler will omit the copy and return the original.
+
+8.  When you copy data from one variable into another, you copy the bytes (the lvalue arguments) within the first variable into the second variable's space.  But, if 
+there are any pointers, those pointed to locations will still be the same, creating a double deletion problem. When you use the move constructor, you are making
+temporary values and using the rvalue reference in order to move the original data from the original object to a new one that is created.  This transfers ownership as 
+well.
+
+12.  You would need to use a forward declaration if there are two or more objects that refer to each other in their headers.  If you don't use a forward declaration, you 
+can create an infinite loop of them including each other infitely.  To fix this, in the header, you declare that the second one simply exists in the first one, then go 
+on to use a pointer or reference to the second one in the declarations.  You would do the same this in the second object's header for the first.  This way they can 
+be advised of each others' existence and continue to use each others' functions accordingly.
