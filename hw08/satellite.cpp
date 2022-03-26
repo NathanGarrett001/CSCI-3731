@@ -24,9 +24,12 @@ satellite::~satellite() {
 
 }
 
-void satellite::update(vector& yPos, vector& zAccel, int timeInterval) {
+void satellite::update(vector& yPos, vector& zAccel,vector& xVel, int timeInterval) {
 
-	this->updateVel = initVel + zAccel.getZ() * timeInterval;
-	this->updatePos = inityPos + initVel * timeInterval;
+	this->updateVel = xVel.getX() + zAccel.getZ() * timeInterval;
+	this->updatePos = yPos.getY() + xVel.getX() * timeInterval;
+
+	xVel.setxVel(updateVel);
+	yPos.setyPos(updatePos);
 
 }
