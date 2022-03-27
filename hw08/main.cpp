@@ -24,8 +24,7 @@ int main()
 
 		iss.update(yPos, zAccel, xVel, timeInt);
 
-
-
+		std::cout << "Your position in space is:  Altitude - " << yPos.getY() << ", velocity - " << xVel.getX() << ". " << std::endl;
 
 	}
 
