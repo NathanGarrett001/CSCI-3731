@@ -78,9 +78,14 @@ vector& vector::operator+=(const vector vect) {
 
 }
 
-vector vector::operator*(const vector vect) {
+vector vector::operator*(double a)const {
+	 
+	return vector(x * a, y * a, z * a);
+}
 
-	return vector(x * vect.x, y * vect.y, z * vect.z);
+double vector::operator*(const vector vect) const {
+
+	return x * vect.x + y * vect.y + z * vect.z;
 
 }
 
