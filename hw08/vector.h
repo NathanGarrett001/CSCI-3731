@@ -2,8 +2,6 @@
 #define VECTOR_H
 #include <iostream>
 
-class planet;
-class satellite;
 
 class vector {
 
@@ -29,7 +27,8 @@ public:
 	vector operator+(const vector vect);
 	vector operator-(const vector vect);
 	vector & operator+=(const vector vect);
-	vector operator*(const vector v1);
+	double operator*(const vector vect)const;
+	vector operator*(double a)const;
 	double multVects(vector v1, vector v2);
 
 	friend std::ostream& operator<<(std::ostream& out, const vector& vect);
