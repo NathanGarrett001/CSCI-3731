@@ -1,35 +1,24 @@
 #ifndef SATELLITE_H
 #define SATELLITE_H
-
-class planet;
-class vector;
+#include "planet.h"
 
 class satellite {
 
 private:
 
-	planet* planetSize;
-	vector* yPos;
-	vector* zAccel;
-	double inityPos = 0.0;
-	double initVel = 0.0;
+	planet earth;
+	vector position;
+	vector velocity;
 	double earthSize = 0.0;
-	double updateVel = 0.0;
-	double updatePos = 0.0;
 
 public:
 	satellite();
-	satellite(vector & yPos, vector & zAccel, planet& planetSize);
+	satellite(vector & position, vector & velocity, planet& planetSize);
 	virtual ~satellite();
+	double getPosition();
+	double getVelocity();
 
-	void update(vector & yPos, vector & zAccel,vector& xVel, int timeInterval);
-
-
-
-
+	bool update(int timeInterval);
 };
-
-
-
 
 #endif
