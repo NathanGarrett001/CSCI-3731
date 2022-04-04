@@ -3,40 +3,34 @@
 #include "satellite.h"
 #include <math.h>
 
-const double g = .0000000000667408;
-const double r = 6378000;
+static const double G = 0.0000000000667408;
+const double radius = 6378000.0;
+const double M = 5972000000000000000000000.0;
 
 planet::planet() {
 
 }
 
-planet::planet(double m) {
+planet::planet(double M, double radius) {
 
-	this->m = m;
+	this->M = M;
+	this->radius = radius;
 }
 
 double planet::getR() const {
-	return r;
+	return radius;
 }
 
 planet::~planet() {
 
 }
 
-bool planet::accel(vector& yPos, vector& zAccel) {
+bool planet::accel(const vector& r, vector& accel) const {
 
-	double alt = yPos.getY();
-	double acceleration = 0.0;
-	bool crash = false;
 
-	double altSquared = alt * alt;
-
-	if (altSquared < (r * r)) {
-		return true;
+	if (r * r < (radius * radius)) {
+		return false;
 	}
-	acceleration = -((g * m) / (altSquared * sqrt(altSquared))) * alt;
-	zAccel.setAccel(acceleration);
-	return false;
+	accel = r * (-(G * M) / (r * r * sqrt(r * r)));
+	return true;
 }
-
-
