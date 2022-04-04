@@ -2,20 +2,18 @@
 #include "planet.h"
 #include "vector.h"
 
-double inityPos = 0.0;
-double initVel = 0.0;
+vector position;
+vector velocity;
 double earthSize = 0.0;
-double updatePos = 0.0;
-double updateVel = 0.0;
 
 satellite::satellite() {
 
 }
 
-satellite::satellite(vector& yPos, vector& xVel, planet& planetSize) {
+satellite::satellite(vector& position, vector& velocity, planet& planetSize) {
 
-	this->inityPos = yPos.getY();
-	this->initVel = xVel.getX();
+	this->position = position;
+	this->velocity = velocity;
 	this->earthSize = planetSize.getR();
 
 }
@@ -24,12 +22,26 @@ satellite::~satellite() {
 
 }
 
-void satellite::update(vector& yPos, vector& zAccel,vector& xVel, int timeInterval) {
+double satellite::getPosition() {
+	return position.getY();
+}
 
-	this->updateVel = xVel.getX() + zAccel.getZ() * timeInterval;
-	this->updatePos = yPos.getY() + xVel.getX() * timeInterval;
+double satellite::getVelocity() {
+	return velocity.getX();
+}
 
-	xVel.setxVel(updateVel);
-	yPos.setyPos(updatePos);
+bool satellite::update(int timeInterval) {
+
+	vector acc;
+
+	if (!earth.accel(position, acc)) {
+		std::cout << "test" << std::endl;
+		return false;
+	}
+
+	position = position + velocity * timeInterval;
+	velocity = velocity + acc * timeInterval;
+
+	return true;
 
 }
