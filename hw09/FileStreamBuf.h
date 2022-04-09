@@ -10,10 +10,11 @@ class FileStreamBuf : public std::streambuf {
 
 private:
 
-	FILE* f; 
+	FILE *f; 
 	int length = 0;
 	char charArray[1024];
 	char* buf = new char[length];
+	int c;
 	
 	
 	
@@ -24,6 +25,8 @@ public:
 	FileStreamBuf(FILE* f);
 
 	void fileClose();
+	virtual int overflow(int c);
+	virtual int sync();
 	const FileStreamBuf(const FileStreamBuf& buf) = delete;
 	virtual ~FileStreamBuf();
 
