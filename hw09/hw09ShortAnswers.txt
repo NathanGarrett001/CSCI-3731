@@ -1,0 +1,59 @@
+Name:  Nathan Garrett
+Date:  04/07/2022
+
+2.  Why would you mark a method as virtual?  Why wouldn't you?
+
+	You would use the virtual method in a subclass as an override to the superclass's method in order to change either the value or message of that
+method during its call by the subclass.  As an example from the text, the original message from the superclass, Vehicle::drive(), was "Going Generically".  By using
+the virtual method to override it from the subclass, Car::drive(), the car class can call that method and instead display it's own message for the drive() method, which 
+in this case would be "Vroooooom!".  You can also avoid ambiguities in class hierarchies when you have multiple inheritances of classes.  I suppose another reason why
+you could use virtual methods is to simulate an interface, but that's better done by java.  
+        A couple of reasons why you wouldn't want to use virtual methods is first, speed.  By directly referencing and using pointers instead, you can save some runtime 
+speed in a large program consiering that the virtual method uses a vtable.  This makes the objects 8 bytes or larger and can add up as the program grows larger and 
+cost your program speed.  Another reason you wouldn't want to use it is if you have a large number of small classes running in a program.  You can save memory space by
+avoiding using the virtual method.
+
+4.  What's the difference between a dynamic cast and a static cast?  Why would you use one over the other?  
+	dynamic_cast is a type of downcasting for classes that checks to make sure if the dowcast requested is valid.  If not it will return a nullptr, meaning it was not
+valid, but it will still compile at runtime.  This is the safest way to downcast, but takes a little more time because of the checking in place.  It also is a good thing
+to implement if you have outside users giving input that may or may not have valid casts, because instead of straight up crashing if an invalid object is passed for casting, 
+it will simply give a nullptr that you can pass back an exception with.  So if safety is your concern when downcasting objects, and speed isn't a big deal, then you would 
+want to go with dynamic_cast.  
+	The less safe option is the static_cast.  Static cast relies on you to cast the correct, compatible object because it does not look at the type of object at runtime.
+That being said, it is the faster option if you have preferrably predictable casting going on.  So if speed is your thing, like you have a large number of casts happening
+that you can make sure are valid, then static casting is the way to go.  
+
+6.  Suppose you have a Fruit base class and a Banana subclass. Suppose you have a banana
+declared like this:
+Banana b;
+What is the difference between what happens when you pass your banana to a method declared like this:
+void eat(Fruit f);
+vs. one declared like this:
+void eat(const Fruit& f);
+
+	I think in the first one you are only going off of the variables that Fruit has, so you might not get some necessary actions that the Banana class has to offer, and
+the second one is referencing the memory address of the actual banana, so you can get the variables from banana and it's parent, Fruit.  That way you can fully utilize the
+hierarchy and eat the banana properly. 
+
+9.  Suppose you have an Exception class. What is wrong with the following code and how
+would you fix it?
+throw new Exception("Help me, Spock");
+
+	The problem with this is that the exception is now on the heap, and can cause memory issues.  In order to fix it, I would simply call it on the stack instead:
+
+some::method(){
+
+  throw Exception("Error");
+}
+
+10.  What is wrong with the following code and how would you fix it?
+try {
+// some code here that might throw an exception
+} catch(Exception e) {
+std::cerr << "Error occurred: "<<e.what()<<std::endl;
+}
+
+The code doesn't reference the exception, so it forces a copy of it, causing problems.  All that is needed to fix this is to change the parameter of the catch to :
+catch(Exception& e)
+
+Code coming soon, still working on it...
