@@ -1,0 +1,24 @@
+Name: Nathan Garrett
+Date: 04/17/2021
+
+1.  What is a Template?
+  A template is a class that allows the programmer to use generic types with objects.  That way you can have the convenience of not needing to rewrite the 
+  same object code with different data types multiple times and instead have one that accepts all data types.  For example, if you have an array of vectors,
+  you could save a lot of memory space by having it set the data to an int, short, or even byte if you have inputs that are whole numbers or small numbers
+  instead of designating the parameters to every vector a double.
+  
+  
+2.  What is the fundamental difference between how Java and C++ implement collections?
+  As far as importing them, they are similar in the sense that you make the import/include statement at the beginning of the code, but the way Java implements its
+  collections is that they are implemented as an object through the collections framework interface where you can manipulate data.  In C++, the collections are 
+  implemented through libraries containing template classes that you can then use to maniulate data through many different data structures.
+  
+3.  What is the difference between a template and a class?
+  This one I believe is a broad vs narrow scope comparison.  A template manages how a group of classes will be generated and used, while a class defines how a group of
+  individual objects will be constructed. 
+  
+7.  What is the difference between the meaning of <> in a Java generic and in a C++ template instantiation?
+  In Java, you use the angle brackets in a generic class instantiation to define what data type will be used in it.  For example, if I say ArrayList<String>, the 
+  parameter used to instantiate the class is defined as a string, so I can only use strings as arguments for it.  In C++ for template instantiation, the stuff inside
+  the angle brackets are arguments of the template on how to make the class.  So your arguments can be objects, strings, primitives, or a combination of them.
+  
