@@ -22,3 +22,9 @@ Date: 04/17/2021
   parameter used to instantiate the class is defined as a string, so I can only use strings as arguments for it.  In C++ for template instantiation, the stuff inside
   the angle brackets are arguments of the template on how to make the class.  So your arguments can be objects, strings, primitives, or a combination of them.
   
+8.  Why can’t you store references in a container?
+  The main reason for this I believe is that a reference cannot be empty/null, and a container is essentially making a framework for a data structure to be manipulated
+  in the future, and would need to hold a null or undefined spot in memory, so you get an error when trying to build that framework with a reference that has to 
+  be instantiated with a value of some sort.  For example, say you managed to make a vector with references, but you need to delete an element from the middle and
+  shift the values above it to close the gap in the array.  All those values would now need to be re-referenced, but since reference dereferencing is implicit, it
+  crashes because you can't reseat, move, resize, or have an empty space in memory when dealing with references.  
