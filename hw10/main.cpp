@@ -73,13 +73,16 @@ int main()
 		for (auto count : vect) {
 			std::string vString = count->getString();
 			
-			totalCounts +=
+			totalCounts = count->getCount();
+
+			prob += (double)totalCounts / n;
+			count->setProb(prob);
 		}
 		
 
-		for (Pattern : std::vector<Pattern>()) {
+		//for (Pattern : std::vector<Pattern>()) {
 
-		}
+		//}
 	}
 }
 
