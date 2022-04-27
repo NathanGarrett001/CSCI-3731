@@ -15,6 +15,7 @@ public:
 	Pattern(std::string patn, int noTimes);
 	void setProb(double prob);
 	double getProb();
+	std::string getString();
 	int getCount();
 	virtual ~Pattern();
 };
